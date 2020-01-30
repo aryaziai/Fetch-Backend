@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :topics
   resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  post '/login', to: 'auth#create'
+  post '/signup',to: 'users#create'
+  post "/re_auth", to: "auth#re_auth"
 end
