@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2020_01_30_200603) do
   enable_extension "plpgsql"
 
   create_table "topics", force: :cascade do |t|
-    t.string "name"
+    t.string "topic_title"
     t.string "logo"
     t.string "instagram"
     t.string "twitter"
     t.string "youtube"
-    t.string "google_new"
+    t.boolean "google_news"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

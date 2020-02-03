@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized # if user is logged in then allow them access
 
     def index
         users = User.all
-        render json: UserSerializer.new(users, {except: [:password_digest]})
+        render json: UserSerializer.new(users)
+        # render json: {users: users} , :include => [:topics]
     end
 
     def show
         user = User.find(params[:id])
-        render json: UserSerializer.new(user) 
-
+        render json: {user: user} , :include => [:topics]
     end
 
     def create
@@ -42,7 +42,6 @@ class UsersController < ApplicationController
 
     private
 
-  
 
     def user_params
         params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name)
