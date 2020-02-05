@@ -2,11 +2,12 @@ class TopicsController < ApplicationController
     skip_before_action :authorized
     # before_action :authorized, only: [:index]
     def index
-        # byebug
-        topics = Topic.all
-        user = User.find(params[:id]) 
-        render json: {topics: user.topics}
-        # render json: {topics: topics}
+        byebug
+        # topics = Topic.all
+        user = current_user
+        # render json: { topics: TopicSerializer.new(user.topics) }
+        # render json: {topics: topics} THIS WORKS
+        render json: {topics: current_user.topics}
     end
 
     def show

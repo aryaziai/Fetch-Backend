@@ -10,6 +10,7 @@ class ApplicationController < ActionController::API
     end
      
     def decoded_token
+      # byebug
         if auth_header
           begin
             JWT.decode(auth_header, 'my_secret', true, algorithm: 'HS256')
@@ -23,8 +24,8 @@ class ApplicationController < ActionController::API
     def current_user
         if decoded_token
           user_id = decoded_token[0]['user_id']
-          @user = User.find_by(id: user_id)
           # byebug
+          @user = User.find_by(id: user_id)
         end
     end
      

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             token = encode_token(user_id: user.id)
             render json: { user: UserSerializer.new(user), jwt: token }, status: :created
         else
-            render json: { error: 'failed to create user' }, status: :not_acceptable
+            render json: { error: 'Failed to create account :(' }, status: :not_acceptable
         end
     end
 
@@ -32,7 +32,9 @@ class UsersController < ApplicationController
     end
 
     def destroy
+        # byebug
         user = User.find(params[:id])
+        user.destroy
         if user.destroy
             render json: {message: "Successfully deleted user"}
         else
