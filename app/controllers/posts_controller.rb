@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
+  
     skip_before_action :authorized
-    # before_action :authorized, only: [:index]
     def index
         # byebug
-        # posts = Post.all
+        posts = Post.all
         user = current_user
         # render json: { posts: PostSerializer.new(user.posts) }
         # render json: {posts: posts} THIS WORKS
-        render json: {posts: current_user.posts}
+        render json: {posts: posts}
+        # render json: { posts: PostSerializer.new(posts) }
     end
 
     def show
@@ -15,11 +16,7 @@ class PostsController < ApplicationController
         render json: {post:post}
     end
 
-
-
-
     def create
-        # byebug
         post = Post.create(post_params)
         if post.valid?
         render json: {post: post}, status: :created
