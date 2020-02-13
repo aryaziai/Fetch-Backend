@@ -3,10 +3,10 @@ class CreateTopics < ActiveRecord::Migration[6.0]
     create_table :topics do |t|
       t.string :topic_title
       t.string :logo
-      t.string :instagram
-      t.string :twitter
-      t.string :youtube
-      t.boolean :google_news
+      t.integer :page_size
+      t.string :language
+      t.string :sort_by
+      t.boolean :plus
       t.integer :user_id
       
       t.timestamps

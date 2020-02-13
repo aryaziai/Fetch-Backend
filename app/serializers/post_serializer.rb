@@ -1,4 +1,5 @@
-class PostSerializer < ActiveModel::Serializer
-  attributes :id, :text, :source, :image_url, :url, :published_at
+class PostSerializer 
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :caption, :source, :image_url, :url, :published_at, :topics
   # belongs_to :post
 end

@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2020_02_04_210101) do
   create_table "topics", force: :cascade do |t|
     t.string "topic_title"
     t.string "logo"
-    t.string "instagram"
-    t.string "twitter"
-    t.string "youtube"
-    t.boolean "google_news"
+    t.integer "page_size"
+    t.string "language"
+    t.string "sort_by"
+    t.boolean "plus"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

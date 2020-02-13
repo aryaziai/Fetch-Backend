@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get "/re_auth", to: "auth#re_auth"
   post "/add-topic", to: "topics#create"
-  patch "/profile", to: "users#update"
-  delete "/delete", to: "users#destroy"
-  post "/posts", to: "posts#create"
-  post "/post_topics", to: "post_topics#create"
+  # patch "/profile", to: "users#update"
+  # delete "/delete", to: "users#destroy"
+
+  # post "/posts", to: "posts#create"
+  # post "/post_topics", to: "post_topics#create"
 end

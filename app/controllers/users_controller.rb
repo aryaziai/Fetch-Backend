@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index] # if user is logged in then allow them access
+    skip_before_action :authorized, only: [:create, :index, :destroy] # if user is logged in then allow them access
 
     def index
         users = User.all
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             token = encode_token(user_id: user.id)
             render json: { user: UserSerializer.new(user), jwt: token }, status: :created
         else
-            render json: { error: error.full_message}, status: :not_acceptable
+            render json: { error: 'Failed to create account' }, status: :not_acceptable
         end
     end
 

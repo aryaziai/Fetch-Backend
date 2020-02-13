@@ -5,7 +5,7 @@ class PostTopicsController < ApplicationController
         post_topics = PostTopic.all
         user = current_user
         # render json: { topics: TopicSerializer.new(user.topics) }
-        render json: {topics: topics} # THIS WORKS
+        render json: {post_topics: post_topics} # THIS WORKS
         # render json: { post_topics: PostTopicSerializer.new(post_topics)}
         # render json: PostTopicSerializer.new(post_topics)
         # render json: {post_topics: post_topics}

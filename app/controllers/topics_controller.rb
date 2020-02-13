@@ -28,9 +28,11 @@ class TopicsController < ApplicationController
 
 
     def destroy
-        topic = Topic.find(params[:id])
-        topic.destroy
-        render json: { destroy: params[:id]}
+        # topic = Topic.find(params[:id])
+        # post = Post.find(params[:id])
+        # byebug
+        # topic.destroy
+        # render json: { destroy: params[:id]}
     end
 
 
@@ -38,7 +40,7 @@ class TopicsController < ApplicationController
 
 
     def topic_params
-        params.require(:topic).permit(:user_id, :topic_title, :instagram, :twitter, :youtube, :google_news, :logo)
+        params.require(:topic).permit(:user_id, :topic_title, :page_size, :plus, :sort_by, :language, :logo) #recently deleted :posts
     end
 
 end
