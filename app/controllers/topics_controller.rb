@@ -28,11 +28,11 @@ class TopicsController < ApplicationController
 
 
     def destroy
-        # topic = Topic.find(params[:id])
+        topic = Topic.find(params[:id])
         # post = Post.find(params[:id])
         # byebug
-        # topic.destroy
-        # render json: { destroy: params[:id]}
+        topic.destroy
+        render json: { destroy: params[:id]}
     end
 
 
