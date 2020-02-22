@@ -24,9 +24,9 @@ class PostsController < ApplicationController
         topic = Topic.find(params[:topic_id])
 
         # byebug
-        if topic.posts.find_by(url: post_params["url"])
-            render json: {error: "Something went wrong"}, status: :not_acceptable
-        else 
+        # if topic.posts.find_by(url: post_params["url"])
+        #     render json: {error: "Something went wrong"}, status: :not_acceptable
+        # else 
             post = Post.create(post_params)
             if post.valid?
             render json: {post: post}, status: :created
