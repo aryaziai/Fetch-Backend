@@ -23,7 +23,6 @@ class PostsController < ApplicationController
         # byebug
         topic = Topic.find(params[:topic_id])
 
-        # byebug
         # if topic.posts.find_by(url: post_params["url"])
         #     render json: {error: "Something went wrong"}, status: :not_acceptable
         # else 
@@ -33,7 +32,7 @@ class PostsController < ApplicationController
             else
                 render json: {error: "Something went very wrong"}, status: :not_acceptable
             end
-        end
+        # end
     end
 
 
