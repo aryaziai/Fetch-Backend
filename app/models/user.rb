@@ -6,5 +6,8 @@ class User < ApplicationRecord
     has_many :posts, through: :favorites
 
     validates :username, presence: true, uniqueness: true
+
+
+    validates :password, :presence => true, :length => {:within => 6..40}
     # validates :name, presence: true
 end
